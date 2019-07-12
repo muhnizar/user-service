@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    jndi-name: umeDs
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      database-platform: org.hibernate.dialect.Oracle10gDialect
+  data:
+    rest:
+      detection-strategy: annotated
+  http:
+    encoding:
+      enabled: false
