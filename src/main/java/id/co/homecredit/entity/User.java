@@ -15,15 +15,18 @@ import java.util.Collection;
  * Created by muhammad.nizar01 on 11/10/2018.
  */
 @Entity
-@Table(name = "IST_USER", uniqueConstraints = { @UniqueConstraint(columnNames = { "USER_NAME" }) })
+@Table(name = "UME_MST_USER", uniqueConstraints = { @UniqueConstraint(columnNames = { "USER_NAME" }) })
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
 @EntityListeners(AuditingEntityListener.class)
 public class User implements UserDetails, Serializable {
 
+
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "generator", sequenceName = "ID_USER_SEQ", allocationSize = 100)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator")
     @Column(name = "ID")
     private Long id;
 
